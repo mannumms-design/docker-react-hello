@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-hello-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-hello
+  template:
+    metadata:
+      labels:
+        app: react-hello
+    spec:
+      containers:
+        - name: react-hello-container
+          image: manmohantomar/react-hello-docker:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5173
