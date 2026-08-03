@@ -1,5 +1,10 @@
 pipeline {
+
     agent any
+
+    tools {
+        nodejs 'NodeJS-22'
+    }
 
     stages {
 
@@ -15,6 +20,8 @@ pipeline {
                 sh 'ls -la'
                 sh 'git --version'
                 sh 'java -version'
+                sh 'node --version'
+                sh 'npm --version'
             }
         }
 
@@ -25,5 +32,6 @@ pipeline {
                 sh 'ls src'
             }
         }
+
     }
 }
